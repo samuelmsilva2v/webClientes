@@ -14,11 +14,11 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr *ngFor="let c of clientes">
+                <td> {{ c.nome }} </td>
+                <td> {{ c.email }} </td>
+                <td> {{ c.telefone }} </td>
+                <td> {{ c.dataCadastro }} </td>
                 <td>
                     <button class="btn btn-sm btn-primary me-1">Editar</button>
                     <button class="btn btn-sm btn-danger me-1">Excluir</button>
@@ -29,7 +29,7 @@
         <tfoot>
             <tr>
                 <td colspan="5">
-                    Quantidade de clientes: 0
+                    Quantidade de clientes: {{ clientes.length }}
                 </td>
             </tr>
         </tfoot>

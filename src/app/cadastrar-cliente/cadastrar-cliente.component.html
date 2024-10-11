@@ -1,6 +1,11 @@
 <h3>Cadastro de clientes</h3>
 <p>Preencha os campos para incluir um cliente</p>
 
+<div *ngIf="mensagem" class="alert alert-primary">
+    <strong> {{mensagem}} </strong>
+</div>
+
+
 <form [formGroup]="formulario" (ngSubmit)="cadastrarCliente()">
 
     <div class="mb-3">

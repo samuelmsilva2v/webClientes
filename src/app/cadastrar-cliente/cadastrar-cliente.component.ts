@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastrar-cliente',
@@ -12,22 +12,26 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 })
 export class CadastrarClienteComponent {
 
+  mensagem: string = '';
+
   constructor(private httpClient: HttpClient) { }
 
   formulario = new FormGroup({
-    nome: new FormControl(),
-    email: new FormControl(),
-    telefone: new FormControl()
+    nome: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    telefone: new FormControl('', [Validators.required])
   });
 
   cadastrarCliente() {
+    
     this.httpClient.post(
       'http://localhost:8080/api/clientes',
       this.formulario.value,
       { responseType: 'text' }
     ).subscribe({
       next: (resposta) => {
-        console.log(resposta);
+        this.mensagem = resposta
+        this.formulario.reset()
       }
     })
   }
