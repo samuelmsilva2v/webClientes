@@ -1,6 +1,10 @@
 <h3>Consulta de clientes</h3>
 <p>Listagem de clientes cadastrados no sistema</p>
 
+<div class="text-center">
+    <pagination-controls previousLabel="Página anterior" nextLabel="Próxima página" (pageChange)="handlePageChange($event)"/>
+</div>
+
 <div class="table-responsive">
     <table class="table table-sm">
         <thead>
@@ -14,7 +18,7 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let c of clientes">
+            <tr *ngFor="let c of clientes | paginate: { itemsPerPage: 5, currentPage : paginador }">
                 <td> {{ c.nome | uppercase }} </td>
                 <td> {{ c.email | lowercase }} </td>
                 <td> {{ c.telefone | mask: '(00) 00000-0000' }} </td>
