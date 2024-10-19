@@ -1,1 +1,30 @@
-<p>editar-clientes works!</p>
+<h3>Cadastro de clientes</h3>
+<p>Preencha os campos para incluir um cliente</p>
+
+<div *ngIf="mensagem" class="alert alert-primary">
+    <strong> {{mensagem}} </strong>
+</div>
+
+
+<form [formGroup]="formulario" (ngSubmit)="atualizarCliente()">
+
+    <div class="mb-3">
+        <label for="">Nome do cliente:</label>
+        <input type="text" class="form-control" formControlName="nome">
+    </div>
+
+    <div class="mb-3">
+        <label for="">E-mail do cliente:</label>
+        <input type="text" class="form-control" formControlName="email">
+    </div>
+
+    <div class="mb-3">
+        <label for="">Telefone do cliente:</label>
+        <input type="text" class="form-control" formControlName="telefone" mask="(00) 00000-0000">
+    </div>
+
+    <div class="mb-3">
+        <input type="submit" class="btn btn-success" value="Salvar alterações" [disabled]="formulario.invalid">
+    </div>
+
+</form>

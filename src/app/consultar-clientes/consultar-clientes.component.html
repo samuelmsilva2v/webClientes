@@ -28,7 +28,7 @@
                 <td> {{ c.telefone | mask: '(00) 00000-0000' }} </td>
                 <td> {{ c.dataCadastro | date: 'dd/MM/yyyy HH:mm' }} </td>
                 <td>
-                    <button class="btn btn-sm btn-primary me-1">Editar</button>
+                    <button class="btn btn-sm btn-primary me-1" [routerLink]="['/app/editar-clientes', c.id]">Editar</button>
                     <button class="btn btn-sm btn-danger me-1" (click)="excluirCliente(c.id)">Excluir</button>
                 </td>
             </tr>

@@ -13,7 +13,11 @@ export const routes: Routes = [
         component: ConsultarClientesComponent
     },
     {
-        path: 'app/editar-clientes',
+        path: 'app/editar-clientes/:id',
         component: EditarClientesComponent
+    },
+    {
+        path: '', pathMatch: 'full',
+        redirectTo: 'app/consultar-clientes'
     }
 ];
