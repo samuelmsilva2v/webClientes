@@ -15,10 +15,10 @@
 
         <tbody>
             <tr *ngFor="let c of clientes">
-                <td> {{ c.nome }} </td>
-                <td> {{ c.email }} </td>
-                <td> {{ c.telefone }} </td>
-                <td> {{ c.dataCadastro }} </td>
+                <td> {{ c.nome | uppercase }} </td>
+                <td> {{ c.email | lowercase }} </td>
+                <td> {{ c.telefone | mask: '(00) 00000-0000' }} </td>
+                <td> {{ c.dataCadastro | date: 'dd/MM/yyyy HH:mm' }} </td>
                 <td>
                     <button class="btn btn-sm btn-primary me-1">Editar</button>
                     <button class="btn btn-sm btn-danger me-1">Excluir</button>
