@@ -1,6 +1,10 @@
 <h3>Consulta de clientes</h3>
 <p>Listagem de clientes cadastrados no sistema</p>
 
+<div *ngIf="mensagem" class="alert alert-primary">
+    <strong> {{ mensagem }} </strong>
+</div>
+
 <div class="text-center">
     <pagination-controls previousLabel="Página anterior" nextLabel="Próxima página" (pageChange)="handlePageChange($event)"/>
 </div>
@@ -25,7 +29,7 @@
                 <td> {{ c.dataCadastro | date: 'dd/MM/yyyy HH:mm' }} </td>
                 <td>
                     <button class="btn btn-sm btn-primary me-1">Editar</button>
-                    <button class="btn btn-sm btn-danger me-1">Excluir</button>
+                    <button class="btn btn-sm btn-danger me-1" (click)="excluirCliente(c.id)">Excluir</button>
                 </td>
             </tr>
         </tbody>
