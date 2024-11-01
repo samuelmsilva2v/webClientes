@@ -1,1 +1,36 @@
-<p>criar-usuario works!</p>
+<div class="container d-flex justify-content-center">
+    <div class="card p-4 shadow-lg" style="width: 100%; 
+                 max-width: 400px">
+
+        <h2 class="text-center mb-1">Criação de usuários</h2>
+
+        <p>Preencha os campos para criar sua conta</p>
+
+        <form>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Nome do usuário:</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">
+                    Email do usuário:</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">
+                    Senha de acesso:</label>
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Realizar Cadastro</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small>Já possui conta? <a href="#">Acesse aqui!</a></small>
+        </div>
+    </div>
+</div>
