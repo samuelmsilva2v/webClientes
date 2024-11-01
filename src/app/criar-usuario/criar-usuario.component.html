@@ -6,26 +6,26 @@
 
         <p>Preencha os campos para criar sua conta</p>
 
-        <form>
+        <form [formGroup]="formulario" (ngSubmit)="criarUsuario()">
 
             <div class="mb-3">
                 <label for="email" class="form-label">Nome do usuário:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" formControlName="nome" />
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">
                     Email do usuário:</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email" formControlName="email" />
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">
                     Senha de acesso:</label>
-                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required />
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" formControlName="senha" />
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="formulario.invalid">
                 Realizar Cadastro</button>
         </form>
 

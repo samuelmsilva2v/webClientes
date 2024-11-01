@@ -12,7 +12,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class AutenticarUsuarioComponent {
 
-  constructor(private httpCliente: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   formulario = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -20,7 +20,7 @@ export class AutenticarUsuarioComponent {
   })
 
   autenticarUsuario() {
-    this.httpCliente.post('http://localhost:8081/api/usuarios/autenticar', this.formulario.value, { responseType: 'text' }).subscribe({
+    this.httpClient.post('http://localhost:8081/api/usuarios/autenticar', this.formulario.value, { responseType: 'text' }).subscribe({
       next: (data) => {
         console.log(data)
       },
