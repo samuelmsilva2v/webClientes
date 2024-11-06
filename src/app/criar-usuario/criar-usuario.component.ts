@@ -12,6 +12,9 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class CriarUsuarioComponent {
 
+  sucesso: string = '';
+  erros: any[] = [];
+
   constructor(private httpClient: HttpClient) { }
 
   formulario = new FormGroup({
@@ -21,12 +24,16 @@ export class CriarUsuarioComponent {
   });
 
   criarUsuario() {
+    this.sucesso = '';
+    this.erros = [];
+
     this.httpClient.post('http://localhost:8081/api/usuarios/criar', this.formulario.value, { responseType: 'text' }).subscribe({
       next: (data) => {
-        console.log(data)
+        this.sucesso = data;
+        this.formulario.reset();
       },
       error: (e) => {
-        console.log(e.error)
+        this.erros = JSON.parse(e.error);
       }
     })
   }

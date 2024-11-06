@@ -6,23 +6,36 @@
 
         <p>Preencha os campos para criar sua conta</p>
 
+        <div *ngIf="sucesso" class="alert alert-success">
+            <strong> {{ sucesso }} </strong>
+        </div>
+
+        <div *ngIf="erros.length > 0" class="alert alert-danger">
+            <div *ngFor="let e of erros">
+                <strong> {{ e }} </strong>
+            </div>
+        </div>
+
         <form [formGroup]="formulario" (ngSubmit)="criarUsuario()">
 
             <div class="mb-3">
                 <label for="email" class="form-label">Nome do usuário:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" formControlName="nome" />
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome"
+                    formControlName="nome" />
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">
                     Email do usuário:</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu email" formControlName="email" />
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email"
+                    formControlName="email" />
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">
                     Senha de acesso:</label>
-                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" formControlName="senha" />
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha"
+                    formControlName="senha" />
             </div>
 
             <button type="submit" class="btn btn-primary w-100" [disabled]="formulario.invalid">
