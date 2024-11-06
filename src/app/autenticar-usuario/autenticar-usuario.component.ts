@@ -11,6 +11,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   styleUrl: './autenticar-usuario.component.css'
 })
 export class AutenticarUsuarioComponent {
+  erros: any[] = [];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,10 +23,12 @@ export class AutenticarUsuarioComponent {
   autenticarUsuario() {
     this.httpClient.post('http://localhost:8081/api/usuarios/autenticar', this.formulario.value, { responseType: 'text' }).subscribe({
       next: (data) => {
-        console.log(data)
+        sessionStorage.setItem('token', data);
+        sessionStorage.setItem('usuario', this.formulario.value.email as string);
+        location.href = '/app/consultar-clientes'
       },
       error: (e) => {
-        console.log(e.error)
+        this.erros = JSON.parse(e.error);
       }
     })
   }
