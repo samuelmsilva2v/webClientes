@@ -13,7 +13,6 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
   styleUrl: './cadastrar-cliente.component.css'
 })
 export class CadastrarClienteComponent {
-
   mensagem: string = '';
 
   constructor(private httpClient: HttpClient) { }
@@ -25,7 +24,6 @@ export class CadastrarClienteComponent {
   });
 
   cadastrarCliente() {
-    
     this.httpClient.post(
       'http://localhost:8080/api/clientes',
       this.formulario.value,

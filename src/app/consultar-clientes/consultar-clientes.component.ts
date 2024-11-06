@@ -14,7 +14,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
   styleUrl: './consultar-clientes.component.css'
 })
 export class ConsultarClientesComponent {
-
   clientes: any[] = [];
   paginador:  number = 1;
   mensagem: string = '';
@@ -22,7 +21,6 @@ export class ConsultarClientesComponent {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-
     this.httpClient.get(
       'http://localhost:8080/api/clientes'
     ).subscribe({
@@ -33,7 +31,6 @@ export class ConsultarClientesComponent {
   }
 
   excluirCliente(id: string) {
-
     if(confirm('Deseja realmente excluir o cliente selecionado?')) {
       this.httpClient.delete('http://localhost:8080/api/clientes/' + id, { responseType: 'text'}).subscribe({
         next:(resposta) => {

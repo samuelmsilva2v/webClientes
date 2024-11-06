@@ -9,12 +9,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
 @Component({
   selector: 'app-editar-clientes',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective, RouterLink],
   templateUrl: './editar-clientes.component.html',
   styleUrl: './editar-clientes.component.css'
 })
 export class EditarClientesComponent {
-
   mensagem: string = '';
   id: string = '';
 

@@ -11,7 +11,6 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   styleUrl: './criar-usuario.component.css'
 })
 export class CriarUsuarioComponent {
-
   sucesso: string = '';
   erros: any[] = [];
 
